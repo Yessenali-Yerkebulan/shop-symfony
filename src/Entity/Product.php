@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +52,12 @@ class Product
      * @ORM\Column(type="boolean")
      */
     private $isDeleted;
+
+    public function __construct(){
+        $this->createdAt = new DateTimeImmutable();
+        $this->isPublished = false;
+        $this->isDeleted = false;
+    }
 
     public function getId(): ?int
     {
