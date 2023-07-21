@@ -21,7 +21,7 @@ class DefaultController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $productList = $entityManager->getRepository(Product::class)->findAll();
-        dd($productList);
+//        dd($productList);
         return $this->render('main/default/index.html.twig', [
         ]);
     }
@@ -43,7 +43,7 @@ class DefaultController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            dd($product);
+//            dd($product);
             $entityManager->persist($product);
             $entityManager->flush();
 
